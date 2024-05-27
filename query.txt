@@ -1,0 +1,26 @@
+create table  department (
+depart_id int primary key ,
+ depart_name varchar(25)
+ );
+
+create table student(
+student_id int primary key,
+first_name varchar(25),
+last_name varchar (25),
+depart_id int,
+foreign key (depart_id) references department(depart_id)
+);
+
+create table task(
+task_id int primary key ,
+student_id int,
+depart_id int ,
+foreign key(student_id) references student(student_id),
+foreign key(depart_id) references department(depart_id)
+);
+
+create table batch(
+barch_id int primary key ,
+student_id int,
+foreign key(student_id) references student(student_id)
+);
